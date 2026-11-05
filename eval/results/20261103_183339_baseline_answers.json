@@ -1,0 +1,418 @@
+[
+  {
+    "id": "q01",
+    "type": "single_paper",
+    "question": "What problem does RADIANT address, and why does it use a local-first design?",
+    "retrieved": [
+      "Jian_Tao_RADIANT_LLM.pdf:p8",
+      "Jian_Tao_RADIANT_LLM.pdf:p32",
+      "Jian_Tao_RADIANT_LLM.pdf:p22",
+      "Jian_Tao_RADIANT_LLM.pdf:p37",
+      "Jian_Tao_RADIANT_LLM.pdf:p7"
+    ],
+    "answer": "RADIANT‑LLM addresses the problem of providing a secure, traceable, and customizable AI assistant for nuclear 3S (design, safety, and operations) tasks that can work with proprietary and export‑controlled documents without exposing sensitive data to external servers. It uses a local‑first design so that all raw documents, parsed text, embeddings, and the JSON knowledge base remain on the user’s own infrastructure, and only minimal, compact prompts are sent to external LLM APIs (or none at all if a fully local model is used). This preserves data privacy, satisfies export‑control requirements, and gives users full control over which documents populate the knowledge base, thereby supporting transparency and trust in the information pipeline. [Jian_Tao_RADIANT_LLM.pdf, p.7] [Jian_Tao_RADIANT_LLM.pdf, p.22]",
+    "reference_answer": "RADIANT-LLM addresses fragmented nuclear technical and regulatory knowledge, unreliable domain answers and hallucinations, and the security risks of sending proprietary or export-controlled nuclear documents to external services. Its local-first design keeps raw files, parsed content, embeddings, and knowledge bases on the user’s infrastructure; when an external LLM API is used, only the question and minimal retrieved excerpts are transmitted, helping preserve data sovereignty while enabling traceable multimodal retrieval.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q02",
+    "type": "single_paper",
+    "question": "How does RADIANT track provenance so that answers can be traced back to source documents?",
+    "retrieved": [
+      "Jian_Tao_RADIANT_LLM.pdf:p8",
+      "Jian_Tao_RADIANT_LLM.pdf:p32",
+      "Jian_Tao_RADIANT_LLM.pdf:p22",
+      "Jian_Tao_RADIANT_LLM.pdf:p22",
+      "Jian_Tao_RADIANT_LLM.pdf:p7"
+    ],
+    "answer": "RADIANT‑LLM tracks provenance by building a persistent, structured, locally‑controlled multimodal knowledge base that records explicit page and figure identifiers along with associated metadata for every ingested document. When the agent retrieves information, it attaches the originating document title, author, page number, and figure reference to the answer, making the source traceable and auditable. This structured KB, combined with the agent’s citation‑backed response layer, ensures that every answer can be traced back to its exact source document and location. [Jian_Tao_RADIANT_LLM.pdf, p.32]",
+    "reference_answer": "RADIANT links extracted text, figure descriptions, and document metadata using shared document, page, and figure identifiers; chunks and visual units inherit metadata such as title, authors, publication date, and system type. Its retrieval and agent layers preserve these identifiers so responses can cite document titles, authors, page numbers, and figure references, while metadata-aware retrieval and version gating restrict results to approved, authoritative, up-to-date sources.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q03",
+    "type": "numeric",
+    "question": "What evaluation results does the RADIANT paper report, and on what tasks or datasets?",
+    "retrieved": [
+      "Jian_Tao_RADIANT_LLM.pdf:p37",
+      "corrective_rag_retrieval_correction.pdf:p15",
+      "Jian_Tao_RADIANT_LLM.pdf:p8",
+      "Jian_Tao_RADIANT_LLM.pdf:p22",
+      "Jian_Tao_RADIANT_LLM.pdf:p32"
+    ],
+    "answer": "I couldn't find this in the papers.",
+    "reference_answer": "The paper evaluates a 15-query page-level visual benchmark (calculus, reactor physics, and thermal-shield pages) and a 12-query used-nuclear-fuel-storage-facility (UNFSF) benchmark, then tests retrieval as the knowledge base grows to 250 sources. On the page-level benchmark, GPT-5.2 achieved CoP=0.9667, HR=0.0060, and ViR=0.9900; on the UNFSF comparison, RADIANT-LLM with GPT-5 achieved CoP=0.875, ViR=1.000, HR=0.083, CiP=0.862, and CiH=0.833. Across corpus-size experiments, CoP and ViR were generally reported in an approximately 85–98% band, with performance varying by context size.",
+    "refused": true,
+    "refusal_correct": false
+  },
+  {
+    "id": "q04",
+    "type": "single_paper",
+    "question": "What custom tools were developed for AutoFLUKA in the Energy and AI paper, and what does each tool do?",
+    "retrieved": [
+      "Jian_Tao_Energy_And_AI.pdf:p4",
+      "Jian_Tao_Energy_And_AI.pdf:p3",
+      "Jian_Tao_Energy_And_AI.pdf:p14",
+      "Jian_Tao_Energy_And_AI.pdf:p3",
+      "Jian_Tao_AutoFLUKA.pdf:p37"
+    ],
+    "answer": "I couldn't find this in the papers.",
+    "reference_answer": "AutoFLUKA’s general workflow tools include python_repl_tool (generate/run Python code), csv_file_reader_tool and text_file_reader_tool (read structured and text files), fluka_input_file_creator_tool (create input files from templates), fluka_executer_tool (run FLUKA), fluka_data_decrypter_tool (decode binary _fort.xx outputs), fluka_data_to_json_tool (save results as JSON), nps_and_uncertainty_tool (extract NPS and average uncertainty), fluka_data_plotter_tool (plot results), and fluka_pdf_processor_tool (RAG guidance). The microdosimetry workflow adds weight_data_with_gas_gains_tool, lin_to_log_rebinning_tool, and microdosimetric_spectra_tool; RAG utilities also include wikipedia_search_tool, google_search_tool, and image_analysis_tool.",
+    "refused": true,
+    "refusal_correct": false
+  },
+  {
+    "id": "q05",
+    "type": "single_paper",
+    "question": "What framework does the paper propose for real-time remote monitoring and control of an advanced lead-cooled fast reactor, and what are its main components?",
+    "retrieved": [
+      "Jian_Tao_Progress_In_Nuclear_Energy.pdf:p17",
+      "Jian_Tao_Progress_In_Nuclear_Energy.pdf:p5",
+      "Jian_Tao_Progress_In_Nuclear_Energy.pdf:p9",
+      "Jian_Tao_Progress_In_Nuclear_Energy.pdf:p1",
+      "Jian_Tao_Progress_In_Nuclear_Energy.pdf:p18"
+    ],
+    "answer": "The paper proposes a **“digital‑twin‑based, hybrid supervisory framework”** for real‑time remote monitoring and control of an advanced lead‑cooled fast reactor (LFR).  \nIts main components are:  \n\n1. **Simulator‑based digital twin (DT)** – a MATLAB‑Simulink lumped‑parameter, 1‑D momentum‑based model that couples neutronics and thermal‑hydraulics, including burn‑up and reactivity feedback, validated against the SAM code.  \n2. **Domain‑knowledge‑enhanced large‑language‑model (LLM) agent (AROMA‑GPT)** – processes sensor data, invokes the DT and diagnostic tools, interprets results, and generates human‑readable explanations and control recommendations.  \n3. **Reference Governor (rl‑RG)** – a traditional rate‑limiting supervisory controller that issues binary control signals (e.g., “FALSE” when operating within the optimal hysteresis region).  \n4. **Bi‑directional OPC‑UA communication** – implemented via CODESYS and MATLAB, enabling secure, real‑time data exchange and remote supervisory control from any connected client.  \n5. **Human‑in‑the‑Loop (HIL) interface** – operators review all LLM‑generated recommendations before execution, ensuring safety oversight.  \n\nThese components together enable autonomous monitoring, diagnostic reasoning, and remote control of the LFR in real time. [Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1]",
+    "reference_answer": "The paper presents an LLM-assisted digital-twin framework for a lead-cooled fast reactor that combines a MATLAB/Simulink simulator, bi-directional OPC-UA connectivity, a traditional rate-limiting Reference Governor (rl-RG), and a tool-centric LLM agent (AROMA-GPT). The agent interprets live sensor and simulator data, uses retrieval and diagnostic tools, and provides quantitative, context-aware monitoring and operational recommendations; its recommended control signals were shown to match those of the rl-RG.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q06",
+    "type": "single_paper",
+    "question": "How does the hierarchical autoencoder compress scientific data, and how is compression quality measured?",
+    "retrieved": [
+      "hierarchical_autoencoder_scientific_data_compression.pdf:p1",
+      "hierarchical_autoencoder_scientific_data_compression.pdf:p3",
+      "hierarchical_autoencoder_scientific_data_compression.pdf:p2",
+      "hierarchical_autoencoder_scientific_data_compression.pdf:p1",
+      "hierarchical_autoencoder_scientific_data_compression.pdf:p2"
+    ],
+    "answer": "The hierarchical autoencoder compresses scientific data by encoding the high‑resolution simulation fields into a compact latent representation through a multi‑level encoder that progressively reduces dimensionality, then decoding that representation back to the original space.  The architecture incorporates masking layers and preprocessing techniques to improve compression efficiency, and uses vector‑quantization‑style bottlenecks to enforce a low‑bit‑rate representation.  Compression quality is evaluated by the achieved compression ratio (e.g., 140× on benchmark data, 200× on 500‑year CESM data) and the reconstruction error, which is reported as negligible for scientific analysis purposes.  [hierarchical_autoencoder_scientific_data_compression.pdf, p.1]",
+    "reference_answer": "The model uses an encoder, two hierarchical vector-quantization stages, and a decoder: the encoder progressively reduces the data dimensions into latent representations, the second-level quantizer supplies a prior to the first-level quantizer, and the decoder reconstructs the original-shaped data from the quantized representation. It is trained end-to-end using reconstruction and codebook-commitment losses, with masking and preprocessing for missing or irrelevant regions; reconstruction quality is assessed using MSE and MS-SSIM, while experiments also report PSNR alongside compression ratio and speed.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q07",
+    "type": "single_paper",
+    "question": "How is the dense passage retriever trained, and what kind of negative examples does it use?",
+    "retrieved": [
+      "dense_passage_semantic_retrieval.pdf:p6",
+      "dense_passage_semantic_retrieval.pdf:p2",
+      "dense_passage_semantic_retrieval.pdf:p3",
+      "dense_passage_semantic_retrieval.pdf:p4",
+      "foundational_retrieval_augmented_generation.pdf:p2"
+    ],
+    "answer": "The dense passage retriever (DPR) is trained by learning a dense encoder \\(E_P(\\cdot)\\) that maps each passage to a low‑dimensional real‑valued vector. For each training question \\(q_i\\) a positive passage \\(p_i^+\\) and a set of \\(n\\) negative passages \\(\\{p_{i,j}^-\\}\\) are used. The loss is the negative log‑likelihood of the positive passage under a softmax over the positives and negatives:\n\n\\[\nL(q_i,p_i^+,p_{i,1}^-,\\dots ,p_{i,n}^-) = -\\log \\frac{\\exp(\\text{sim}(q_i,p_i^+))}{\\exp(\\text{sim}(q_i,p_i^+))+\\sum_{j=1}^{n}\\exp(\\text{sim}(q_i,p_{i,j}^-))}\\;,\n\\]\n\nwhere \\(\\text{sim}\\) is a similarity function (e.g., dot product) between the encoded question and passage vectors [dense_passage_semantic_retrieval.pdf, p.3].\n\nNegative passages can be chosen in three ways:\n\n1. **Random** – any random passage from the corpus.  \n2. **BM25** – top passages returned by BM25 that do not contain the answer but match many question tokens.  \n3. **Gold** – passages that are positive for other questions in the training set (i.e., relevant passages for different queries).  \n\nThe best performing model uses gold passages from the same mini‑batch as negatives, together with one BM25 negative passage. This “in‑batch negative” strategy re‑uses gold negatives efficiently and yields superior retrieval accuracy [dense_passage_semantic_retrieval.pdf, p.3].",
+    "reference_answer": "DPR uses a dual-encoder (bi-encoder) architecture: separate BERT-based question and passage encoders map each input to dense vectors, and the model is trained with a softmax negative-log-likelihood objective that gives the positive passage a higher similarity score than negatives. Its training uses in-batch negatives (the other questions’ gold passages in the same mini-batch) plus one hard BM25 negative passage per question; BM25 negatives are high-ranked but do not contain the answer.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q08",
+    "type": "single_paper",
+    "question": "What is the difference between RAG-Sequence and RAG-Token?",
+    "retrieved": [
+      "foundational_retrieval_augmented_generation.pdf:p3",
+      "foundational_retrieval_augmented_generation.pdf:p3",
+      "foundational_retrieval_augmented_generation.pdf:p6",
+      "graphrag_knowledge_graph_rag.pdf:p2",
+      "self_rag_self_reflective_retrieval.pdf:p3"
+    ],
+    "answer": "RAG‑Sequence uses a single retrieved document for the entire output: the same latent document \\(z\\) is marginalized over for every token in the sequence.  \nRAG‑Token allows a different latent document for each token: for each output token the model can draw a new document from the top‑\\(K\\) set and marginalize over these per‑token choices, enabling the generator to mix content from multiple passages. [foundational_retrieval_augmented_generation.pdf, p.3]",
+    "reference_answer": "RAG-Sequence treats one retrieved document as the latent evidence source for the entire output sequence, computes the sequence probability conditioned on each top-K document, and marginalizes over documents. RAG-Token instead marginalizes over retrieved documents separately for each output token, allowing different tokens in the same answer to be supported by different documents.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q09",
+    "type": "single_paper",
+    "question": "Which models does the original RAG paper use for its retriever and its generator?",
+    "retrieved": [
+      "foundational_retrieval_augmented_generation.pdf:p3",
+      "foundational_retrieval_augmented_generation.pdf:p3",
+      "lightrag_lightweight_graph_rag.pdf:p2",
+      "corrective_rag_retrieval_correction.pdf:p1",
+      "corrective_rag_retrieval_correction.pdf:p3"
+    ],
+    "answer": "The original RAG paper uses a DPR (Dense Passage Retrieval) model as its retriever and a seq2seq language model (e.g., BART) as its generator. [foundational_retrieval_augmented_generation.pdf, p.3]",
+    "reference_answer": "The original RAG model uses the DPR bi-encoder retriever, with BERT_BASE query and document encoders, to retrieve passages from the dense Wikipedia index. Its generator is BART-large, a pretrained sequence-to-sequence transformer with 400 million parameters.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q10",
+    "type": "single_paper",
+    "question": "What are reflection tokens in Self-RAG, and what does each type signal?",
+    "retrieved": [
+      "self_rag_self_reflective_retrieval.pdf:p1",
+      "self_rag_self_reflective_retrieval.pdf:p17",
+      "self_rag_self_reflective_retrieval.pdf:p2",
+      "self_rag_self_reflective_retrieval.pdf:p2",
+      "self_rag_self_reflective_retrieval.pdf:p4"
+    ],
+    "answer": "Reflection tokens are special tokens that SELF‑RAG learns to generate as part of its normal next‑token prediction. They are inserted into the training corpus by a critic model and later produced by the generator model to indicate the model’s self‑assessment of its generation process. There are two main categories of reflection tokens:\n\n| Token type | Signal it conveys |\n|------------|-------------------|\n| **Retrieval‑on‑demand (Retrieve)** | Whether the current continuation needs factual grounding. “Yes” means the model should call the retriever; “No” means no retrieval is needed; “Continue to use evidence” means the model can keep using previously retrieved passages. |\n| **Relevant (ISREL)** | Whether a retrieved passage is useful for the current segment. “Relevant” indicates the evidence provides useful information; “Irrelevant” indicates it does not. |\n| **Supported (ISSUP)** | The degree to which the generated output is backed by the evidence. It can be “Fully supported”, “Partially supported”, or “No support / Contradictory”. |\n| **Useful (ISUSE)** | (Defined in Liu et al. 2023a) indicates whether the generated content is overall useful. |\n\nThese tokens are generated at segment‑level (for retrieval, relevance, and support) and at output‑level (for usefulness), allowing SELF‑RAG to decide when to retrieve, how to evaluate retrieved passages, and which generated segment to keep. [self_rag_self_reflective_retrieval.pdf, p.1] [self_rag_self_reflective_retrieval.pdf, p.17]",
+    "reference_answer": "Reflection tokens are special output tokens that let SELF-RAG decide when retrieval is useful and critique retrieved evidence and generated text. Retrieve signals whether to retrieve (yes/no/continue); ISREL judges a passage as relevant or irrelevant; ISSUP judges whether the generated statement is fully supported, partially supported, or unsupported by the passage; and ISUSE assigns the overall response a usefulness score from 1 to 5.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q11",
+    "type": "single_paper",
+    "question": "In Corrective RAG, what actions are taken depending on the retrieval evaluator's judgment?",
+    "retrieved": [
+      "corrective_rag_retrieval_correction.pdf:p3",
+      "corrective_rag_retrieval_correction.pdf:p5",
+      "corrective_rag_retrieval_correction.pdf:p2",
+      "corrective_rag_retrieval_correction.pdf:p10",
+      "corrective_rag_retrieval_correction.pdf:p4"
+    ],
+    "answer": "In Corrective RAG, the retrieval evaluator’s judgment determines one of three actions:\n\n* **Correct** – the retrieved documents are deemed reliable and are used as‑is.  \n* **Incorrect** – the retrieved documents are discarded and the system resorts to web searches for complementary knowledge.  \n* **Ambiguous** – when the evaluator is not confident, both the retrieved documents and the web‑search results are combined in a soft, balanced manner.  \n\n[corrective_rag_retrieval_correction.pdf, p.3]",
+    "reference_answer": "CRAG’s lightweight retrieval evaluator assigns confidence to the retrieved documents and triggers one of three actions: Correct keeps and refines relevant retrieved knowledge by decomposing documents into strips, filtering irrelevant strips, and recomposing the useful ones; Incorrect discards the retrieved documents and uses rewritten-query web search for external knowledge; Ambiguous combines refined internal knowledge with web-search knowledge. The actions are applied according to upper and lower confidence thresholds.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q12",
+    "type": "single_paper",
+    "question": "How does RAPTOR build its tree of document summaries?",
+    "retrieved": [
+      "raptor_hierarchical_document_retrieval.pdf:p3",
+      "raptor_hierarchical_document_retrieval.pdf:p2",
+      "raptor_hierarchical_document_retrieval.pdf:p16",
+      "raptor_hierarchical_document_retrieval.pdf:p16",
+      "raptor_hierarchical_document_retrieval.pdf:p8"
+    ],
+    "answer": "RAPTOR builds its tree by recursively clustering short, contiguous text chunks (≈100 tokens each) based on their SBERT embeddings, summarizing each cluster with a language model, re‑embedding the summaries, and repeating this process until no further clustering is possible. The resulting hierarchy has leaf nodes that are the original chunks, intermediate nodes that are summaries of clustered chunks, and a root node that summarizes the entire document. This bottom‑up construction yields a multi‑layered tree of document summaries. [raptor_hierarchical_document_retrieval.pdf, p.3]",
+    "reference_answer": "RAPTOR recursively embeds text chunks, clusters semantically similar chunks (and later summaries) using their embeddings, and uses an LLM to summarize each cluster into a parent node. It repeats clustering and summarization bottom-up until a tree is formed, with leaf nodes retaining detailed text and higher nodes representing increasingly abstract summaries.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q13",
+    "type": "single_paper",
+    "question": "What are the two retrieval strategies in RAPTOR, and which performed better?",
+    "retrieved": [
+      "raptor_hierarchical_document_retrieval.pdf:p7",
+      "raptor_hierarchical_document_retrieval.pdf:p8",
+      "raptor_hierarchical_document_retrieval.pdf:p6",
+      "raptor_hierarchical_document_retrieval.pdf:p8",
+      "raptor_hierarchical_document_retrieval.pdf:p16"
+    ],
+    "answer": "RAPTOR implements two retrieval strategies:  \n1. **Balanced tree‑style encoding and summarization of contiguous text chunks** (a recency‑based tree).  \n2. **Cluster‑based encoding and summarization** (the standard RAPTOR approach).  \n\nThe ablation study on the QuALITY dataset shows that the **cluster‑based strategy outperforms the balanced‑tree strategy**, yielding higher accuracy. [raptor_hierarchical_document_retrieval.pdf, p.16]",
+    "reference_answer": "RAPTOR evaluates tree traversal and collapsed-tree retrieval. Tree traversal starts at the root and repeatedly selects the top-k similar child nodes at each lower layer, whereas collapsed-tree retrieval flattens nodes from every layer and selects the most similar nodes until a token budget is reached. The collapsed-tree approach performed better in their comparison and was selected for the main experiments (using a 2,000-token limit).",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q14",
+    "type": "single_paper",
+    "question": "What role does Personalized PageRank play in HippoRAG's retrieval?",
+    "retrieved": [
+      "hipporag_knowledge_graph_retrieval.pdf:p2",
+      "hipporag_knowledge_graph_retrieval.pdf:p1",
+      "hipporag_knowledge_graph_retrieval.pdf:p3",
+      "hipporag_knowledge_graph_retrieval.pdf:p8",
+      "hipporag_knowledge_graph_retrieval.pdf:p7"
+    ],
+    "answer": "Personalized PageRank (PPR) is used to perform multi‑hop reasoning over the knowledge graph in a single retrieval step. By running PPR with the query concepts as seeds, HippoRAG explores KG paths and identifies relevant subgraphs, enabling single‑step multi‑hop retrieval that improves recall and overall QA performance [hipporag_knowledge_graph_retrieval.pdf, p.2].",
+    "reference_answer": "Personalized PageRank performs graph-based pattern completion from the query nodes: probability mass starts on the query-linked entities and propagates through the knowledge graph and synonymy edges to activate related nodes. HippoRAG then aggregates the resulting node probabilities over the passages in which those nodes occur and ranks passages by the resulting scores; node specificity can weight the initial query-node probabilities.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q15",
+    "type": "single_paper",
+    "question": "What is dual-level retrieval in LightRAG?",
+    "retrieved": [
+      "lightrag_lightweight_graph_rag.pdf:p6",
+      "lightrag_lightweight_graph_rag.pdf:p11",
+      "lightrag_lightweight_graph_rag.pdf:p13",
+      "lightrag_lightweight_graph_rag.pdf:p4",
+      "lightrag_lightweight_graph_rag.pdf:p5"
+    ],
+    "answer": "Dual‑level retrieval in LightRAG is a two‑stage keyword‑matching strategy that first extracts local (entity‑level) and global (relation‑level) query keywords, then matches them against a lightweight graph‑based index. The method retrieves both specific entities and broader topics, and subsequently expands the result set by gathering one‑hop neighboring nodes to capture higher‑order relatedness, thereby combining low‑level detail with high‑level context for more comprehensive answers. [lightrag_lightweight_graph_rag.pdf, p.4]",
+    "reference_answer": "LightRAG’s dual-level retrieval handles both specific and abstract queries. Low-level retrieval finds particular entities and their attributes or relationships (nodes and edges), while high-level retrieval aggregates information across related entities and relationships to address broader topics and themes; graph structure and vector representations are combined to improve context and retrieval efficiency.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q16",
+    "type": "single_paper",
+    "question": "How does GraphRAG use community summaries to answer global questions about a whole corpus?",
+    "retrieved": [
+      "graphrag_knowledge_graph_rag.pdf:p6",
+      "graphrag_knowledge_graph_rag.pdf:p12",
+      "graphrag_knowledge_graph_rag.pdf:p10",
+      "graphrag_knowledge_graph_rag.pdf:p1",
+      "graphrag_knowledge_graph_rag.pdf:p2"
+    ],
+    "answer": "GraphRAG answers global questions by first generating community‑level summaries for every group of closely related entities in the knowledge‑graph hierarchy. For a given query, each community summary is fed to an LLM in parallel (the “map” step) to produce a partial answer that reflects the content of that community. These partial answers are then combined and fed to another LLM to produce a single, final answer that summarizes the entire corpus (the “reduce” step). This map‑reduce style processing allows GraphRAG to scale to large datasets while providing comprehensive, diverse responses to global questions [graphrag_knowledge_graph_rag.pdf, p.6] [graphrag_knowledge_graph_rag.pdf, p.10]",
+    "reference_answer": "GraphRAG first uses an LLM to extract entities, relationships, and claims from text chunks and builds a knowledge graph, then applies hierarchical community detection (such as Leiden) to group related graph elements. It generates summaries for communities at different levels; at query time, each community summary produces a partial answer in parallel, and a final query-focused summarization step combines the relevant partial answers into a global response.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q17",
+    "type": "numeric",
+    "question": "What top-20 retrieval accuracy does DPR achieve on Natural Questions, and how does it compare to BM25?",
+    "retrieved": [
+      "dense_passage_semantic_retrieval.pdf:p12",
+      "dense_passage_semantic_retrieval.pdf:p5",
+      "dense_passage_semantic_retrieval.pdf:p7",
+      "dense_passage_semantic_retrieval.pdf:p5",
+      "dense_passage_semantic_retrieval.pdf:p12"
+    ],
+    "answer": "DPR achieves a top‑20 retrieval accuracy of **66.8 %** on the Natural Questions development set, whereas BM25 attains **59.1 %** for the same metric. Thus DPR outperforms BM25 by about **7.7 percentage points** [dense_passage_semantic_retrieval.pdf, p.12].",
+    "reference_answer": "On Natural Questions, DPR’s single-dataset-trained model achieves 78.4% top-20 retrieval accuracy, compared with 59.1% for BM25 (an absolute improvement of 19.3 percentage points).",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q18",
+    "type": "numeric",
+    "question": "Which multi-hop QA datasets does HippoRAG evaluate on?",
+    "retrieved": [
+      "hipporag_knowledge_graph_retrieval.pdf:p8",
+      "hipporag_knowledge_graph_retrieval.pdf:p8",
+      "hipporag_knowledge_graph_retrieval.pdf:p9",
+      "hipporag_knowledge_graph_retrieval.pdf:p7",
+      "hipporag_knowledge_graph_retrieval.pdf:p2"
+    ],
+    "answer": "HippoRAG is evaluated on the following multi‑hop QA datasets: MuSiQue, 2WikiMultiHopQA, and HotpotQA. [hipporag_knowledge_graph_retrieval.pdf, p.8]",
+    "reference_answer": "HippoRAG evaluates multi-hop question answering on MuSiQue and 2WikiMultiHopQA, and also includes HotpotQA for completeness (the authors note that it is a weaker multi-hop test because of spurious signals).",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q19",
+    "type": "numeric",
+    "question": "What document collection does the original RAG paper use as its retrieval index, and how large is it?",
+    "retrieved": [
+      "corrective_rag_retrieval_correction.pdf:p2",
+      "graphrag_knowledge_graph_rag.pdf:p2",
+      "corrective_rag_retrieval_correction.pdf:p2",
+      "Jian_Tao_Energy_And_AI.pdf:p5",
+      "foundational_retrieval_augmented_generation.pdf:p8"
+    ],
+    "answer": "I couldn't find this in the papers.",
+    "reference_answer": "The original RAG paper uses the December 2018 English Wikipedia dump as its non-parametric retrieval index. Articles are split into disjoint 100-word passages, producing approximately 21 million documents (21M; specifically 21,015,324 passages).",
+    "refused": true,
+    "refusal_correct": false
+  },
+  {
+    "id": "q20",
+    "type": "multi_paper",
+    "question": "How do GraphRAG, HippoRAG, and LightRAG differ in how they construct and use knowledge graphs for retrieval?",
+    "retrieved": [
+      "lightrag_lightweight_graph_rag.pdf:p11",
+      "lightrag_lightweight_graph_rag.pdf:p6",
+      "lightrag_lightweight_graph_rag.pdf:p8",
+      "graphrag_knowledge_graph_rag.pdf:p3",
+      "hipporag_knowledge_graph_retrieval.pdf:p10"
+    ],
+    "answer": "GraphRAG, HippoRAG, and LightRAG differ mainly in how they build the knowledge graph and how that graph is used for retrieval.\n\n| System | Graph construction | Retrieval use |\n|--------|--------------------|---------------|\n| **GraphRAG** | Builds a graph index from the source data and then applies graph‑based community detection to create a thematic partitioning of the data. The graph is used to generate hierarchical summaries that act as “self‑memory” for the LLM. | Retrieval is performed by traversing the graph communities; the graph is used to aggregate and rank relevant sections, but the process is computationally heavy because of the community detection step. |\n| **HippoRAG** | Constructs a knowledge graph from scratch using LLMs, without any supervision. The graph is built by extracting triples directly from retrieved documents. | Retrieval is multi‑hop and graph‑augmented: the LLM traverses the graph to find relevant documents, improving reasoning without a separate re‑ranking module. |\n| **LightRAG** | Uses a lightweight, keyword‑based approach to generate a graph that captures entities and relationships but avoids heavy community detection. The graph is built quickly and updated dynamically. | Retrieval is dual‑level: low‑level entity retrieval and high‑level topic retrieval. The graph is traversed only for keyword‑guided hops, leading to faster query times and lower storage overhead. |\n\nThus, GraphRAG relies on community detection and hierarchical summaries, HippoRAG builds an unsupervised KG for multi‑hop traversal, and LightRAG uses a lightweight, keyword‑driven graph with dual‑level retrieval for efficiency.",
+    "reference_answer": "GraphRAG extracts entities, relationships, and claims into a knowledge graph, detects nested communities, and summarizes those communities for global, corpus-level question answering. HippoRAG builds an OpenIE knowledge graph from passages, adds embedding-derived synonymy links, and uses query entities plus Personalized PageRank to rank supporting passages. LightRAG builds a graph of entities and relationships and combines vector representations with low-level retrieval of specific entities/relations and high-level retrieval of broader themes, rather than relying on GraphRAG-style hierarchical community reports or HippoRAG’s PPR mechanism.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q21",
+    "type": "multi_paper",
+    "question": "How do Self-RAG and Corrective RAG each decide whether retrieved documents are useful?",
+    "retrieved": [
+      "corrective_rag_retrieval_correction.pdf:p2",
+      "corrective_rag_retrieval_correction.pdf:p10",
+      "self_rag_self_reflective_retrieval.pdf:p1",
+      "corrective_rag_retrieval_correction.pdf:p3",
+      "foundational_retrieval_augmented_generation.pdf:p5"
+    ],
+    "answer": "Self‑RAG decides usefulness by letting the model itself generate a **retrieval token** when it predicts that augmenting the current generation with external passages would help. After the token is produced, the model evaluates the retrieved passages and then emits **critique tokens** to choose the best passage based on factuality and overall quality, effectively deciding whether the retrieved documents are useful [self_rag_self_reflective_retrieval.pdf, p.1].\n\nCorrective RAG uses a lightweight **retrieval evaluator** that scores the overall quality of the retrieved documents for a query. From this score a **confidence degree** is computed, which triggers one of three actions: {Correct, Incorrect, Ambiguous}. For the latter two actions, the system performs large‑scale web searches to obtain better documents. Thus, the evaluator determines whether the retrieved documents are useful and whether they need correction or replacement [corrective_rag_retrieval_correction.pdf, p.2].",
+    "reference_answer": "SELF-RAG makes the retrieval decision within its generator by emitting a Retrieve reflection token and then uses ISREL, ISSUP, and ISUSE tokens to critique passage relevance, evidence support, and response usefulness. CRAG instead uses a separate lightweight T5-based retrieval evaluator to score retrieved documents and classify them as Correct, Incorrect, or Ambiguous, triggering refinement, web search, or a combination of both.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q22",
+    "type": "multi_paper",
+    "question": "RAPTOR and GraphRAG both create summaries of the corpus. How do their approaches differ?",
+    "retrieved": [
+      "raptor_hierarchical_document_retrieval.pdf:p16",
+      "graphrag_knowledge_graph_rag.pdf:p10",
+      "raptor_hierarchical_document_retrieval.pdf:p16",
+      "raptor_hierarchical_document_retrieval.pdf:p3",
+      "raptor_hierarchical_document_retrieval.pdf:p8"
+    ],
+    "answer": "RAPTOR builds a recursive tree by first chunking the text, embedding the chunks with SBERT, clustering the embeddings, summarizing each cluster, re‑embedding the summaries, and repeating until no further clustering is possible. The resulting tree contains multiple layers of summaries that capture both broad themes (upper nodes) and fine details (lower nodes) and is used for retrieval via a collapsed‑tree approach.  \n\nGraphRAG, on the other hand, constructs “community” summaries that group related passages into communities (e.g., low‑level, intermediate‑level, root‑level). These community summaries are compared to the original source texts; they provide a small but consistent improvement in answer comprehensiveness and diversity while dramatically reducing the number of context tokens needed (26–33 % fewer for low‑level communities, >97 % fewer for root‑level). GraphRAG’s focus is on token‑efficiency and scalability rather than a multi‑layer hierarchical tree.  \n\nThus, RAPTOR emphasizes a hierarchical, clustering‑based tree of summaries, whereas GraphRAG emphasizes community‑based summaries that reduce token usage and improve efficiency. [raptor_hierarchical_document_retrieval.pdf, p.16] [graphrag_knowledge_graph_rag.pdf, p.10]",
+    "reference_answer": "RAPTOR builds a bottom-up tree by embedding and clustering semantically similar text chunks, then summarizing each cluster into parent nodes; its summaries therefore represent clusters of text at different abstraction levels. GraphRAG first extracts entities and relationships into a knowledge graph, partitions that graph into hierarchical communities, and summarizes the communities; its summaries represent groups of connected graph elements rather than clusters of raw text chunks.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q23",
+    "type": "multi_paper",
+    "question": "Which of the papers evaluate on the HotpotQA dataset?",
+    "retrieved": [
+      "hipporag_knowledge_graph_retrieval.pdf:p23",
+      "corrective_rag_retrieval_correction.pdf:p9",
+      "corrective_rag_retrieval_correction.pdf:p15",
+      "corrective_rag_retrieval_correction.pdf:p15",
+      "hierarchical_autoencoder_scientific_data_compression.pdf:p16"
+    ],
+    "answer": "The paper that evaluates on the HotpotQA dataset is **hipporag_knowledge_graph_retrieval.pdf**.",
+    "reference_answer": "HippoRAG is the paper in this collection that explicitly evaluates on HotpotQA, alongside MuSiQue and 2WikiMultiHopQA.",
+    "refused": false,
+    "refusal_correct": true
+  },
+  {
+    "id": "q24",
+    "type": "out_of_scope",
+    "question": "Who won the 2022 FIFA World Cup?",
+    "retrieved": [
+      "self_rag_self_reflective_retrieval.pdf:p24",
+      "hipporag_knowledge_graph_retrieval.pdf:p22",
+      "corrective_rag_retrieval_correction.pdf:p14",
+      "hipporag_knowledge_graph_retrieval.pdf:p22",
+      "Jian_Tao_Progress_In_Nuclear_Energy.pdf:p22"
+    ],
+    "answer": "I couldn't find this in the papers.",
+    "reference_answer": "I couldn't find this in the papers.",
+    "refused": true,
+    "refusal_correct": true
+  },
+  {
+    "id": "q25",
+    "type": "out_of_scope",
+    "question": "What does the Llama 3 paper say about RAG?",
+    "retrieved": [
+      "lightrag_lightweight_graph_rag.pdf:p12",
+      "corrective_rag_retrieval_correction.pdf:p7",
+      "lightrag_lightweight_graph_rag.pdf:p10",
+      "graphrag_knowledge_graph_rag.pdf:p2",
+      "Jian_Tao_RADIANT_LLM.pdf:p1"
+    ],
+    "answer": "I couldn't find this in the papers.",
+    "reference_answer": "I couldn't find this in the papers.",
+    "refused": true,
+    "refusal_correct": true
+  },
+  {
+    "id": "q26",
+    "type": "out_of_scope",
+    "question": "How does the REALM paper pretrain its retriever?",
+    "retrieved": [
+      "raptor_hierarchical_document_retrieval.pdf:p22",
+      "dense_passage_semantic_retrieval.pdf:p12",
+      "dense_passage_semantic_retrieval.pdf:p8",
+      "foundational_retrieval_augmented_generation.pdf:p2",
+      "dense_passage_semantic_retrieval.pdf:p4"
+    ],
+    "answer": "I couldn't find this in the papers.",
+    "reference_answer": "I couldn't find this in the papers.",
+    "refused": true,
+    "refusal_correct": true
+  }
+]

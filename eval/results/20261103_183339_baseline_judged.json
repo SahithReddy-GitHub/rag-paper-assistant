@@ -1,0 +1,1005 @@
+{
+  "judge_model": "openai/gpt-oss-120b",
+  "summary": [
+    {
+      "group": "multi_paper",
+      "n": 4,
+      "correctness": 0.625,
+      "fully_correct": 0.25,
+      "faithfulness": 0.933,
+      "citation_acc": 0.8
+    },
+    {
+      "group": "numeric",
+      "n": 4,
+      "correctness": 0.25,
+      "fully_correct": 0.25,
+      "faithfulness": 0.666,
+      "citation_acc": 0.5
+    },
+    {
+      "group": "single_paper",
+      "n": 15,
+      "correctness": 0.7,
+      "fully_correct": 0.533,
+      "faithfulness": 0.918,
+      "citation_acc": 0.885
+    },
+    {
+      "group": "ALL in-scope",
+      "n": 23,
+      "correctness": 0.609,
+      "fully_correct": 0.435,
+      "faithfulness": 0.896,
+      "citation_acc": 0.83
+    },
+    {
+      "group": "out_of_scope",
+      "n": 3,
+      "correctness": 1.0,
+      "fully_correct": 1.0,
+      "faithfulness": null,
+      "citation_acc": null
+    }
+  ],
+  "results": [
+    {
+      "id": "q01",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "The answer captures the security and local‑first aspects but omits the fragmented knowledge and hallucination problems mentioned in the reference.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 4,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "RADIANT‑LLM addresses the problem of providing a secure, traceable, and customizable AI assistant for nuclear 3S (design, safety, and operations) tasks that can work with proprietary and export‑controlled documents without exposing sensitive data to external servers.",
+          "supported": true,
+          "citation": "Jian_Tao_RADIANT_LLM.pdf, p.7",
+          "citation_correct": true
+        },
+        {
+          "claim": "It uses a local‑first design so that all raw documents, parsed text, embeddings, and the JSON knowledge base remain on the user’s own infrastructure.",
+          "supported": true,
+          "citation": "Jian_Tao_RADIANT_LLM.pdf, p.22",
+          "citation_correct": true
+        },
+        {
+          "claim": "Only minimal, compact prompts are sent to external LLM APIs (or none at all if a fully local model is used).",
+          "supported": true,
+          "citation": "Jian_Tao_RADIANT_LLM.pdf, p.22",
+          "citation_correct": true
+        },
+        {
+          "claim": "This preserves data privacy, satisfies export‑control requirements, and gives users full control over which documents populate the knowledge base, thereby supporting transparency and trust in the information pipeline.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "The answer includes the main provenance mechanisms described in the reference.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 3,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "RADIANT‑LLM tracks provenance by building a persistent, structured, locally‑controlled multimodal knowledge base that records explicit page and figure identifiers along with associated metadata for every ingested document.",
+          "supported": true,
+          "citation": "Jian_Tao_RADIANT_LLM.pdf, p.32",
+          "citation_correct": true
+        },
+        {
+          "claim": "When the agent retrieves information, it attaches the originating document title, author, page number, and figure reference to the answer, making the source traceable and auditable.",
+          "supported": true,
+          "citation": "Jian_Tao_RADIANT_LLM.pdf, p.32",
+          "citation_correct": true
+        },
+        {
+          "claim": "This structured KB, combined with the agent’s citation‑backed response layer, ensures that every answer can be traced back to its exact source document and location.",
+          "supported": true,
+          "citation": "Jian_Tao_RADIANT_LLM.pdf, p.32",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "numeric",
+      "refused": true,
+      "correctness": 0,
+      "judge_reason": "false refusal",
+      "faithfulness": null,
+      "citation_accuracy": null,
+      "n_claims": 0,
+      "unsupported_claims": [],
+      "claims": []
+    },
+    {
+      "id": "q04",
+      "type": "single_paper",
+      "refused": true,
+      "correctness": 0,
+      "judge_reason": "false refusal",
+      "faithfulness": null,
+      "citation_accuracy": null,
+      "n_claims": 0,
+      "unsupported_claims": [],
+      "claims": []
+    },
+    {
+      "id": "q05",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "All key elements from the reference answer are present and accurate.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 0.857,
+      "n_claims": 7,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "The paper proposes a “digital‑twin‑based, hybrid supervisory framework” for real‑time remote monitoring and control of an advanced lead‑cooled fast reactor (LFR).",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "The framework includes a simulator‑based digital twin (DT) that is a MATLAB‑Simulink lumped‑parameter, 1‑D momentum‑based model coupling neutronics and thermal‑hydraulics, with burn‑up and reactivity feedback, validated against the SAM code.",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "It incorporates a domain‑knowledge‑enhanced large‑language‑model (LLM) agent (AROMA‑GPT) that processes sensor data, invokes the DT and diagnostic tools, interprets results, and generates human‑readable explanations and control recommendations.",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "A traditional rate‑limiting Reference Governor (rl‑RG) is used as a supervisory controller that issues binary control signals (e.g., “FALSE” when operating within the optimal hysteresis region).",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "Bi‑directional OPC‑UA communication is implemented via CODESYS and MATLAB, providing secure, real‑time data exchange and remote supervisory control from any connected client.",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "A Human‑in‑the‑Loop (HIL) interface allows operators to review all LLM‑generated recommendations before execution, ensuring safety oversight.",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": false
+        },
+        {
+          "claim": "Together these components enable autonomous monitoring, diagnostic reasoning, and remote control of the LFR in real time.",
+          "supported": true,
+          "citation": "Jian_Tao_Progress_In_Nuclear_Energy.pdf, p.1",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Missing key quality metrics (MSE, MS‑SSIM, PSNR) described in the reference answer.",
+      "faithfulness": 0.6,
+      "citation_accuracy": 0.4,
+      "n_claims": 5,
+      "unsupported_claims": [
+        "The hierarchical autoencoder compresses scientific data by encoding high‑resolution simulation fields into a compact latent representation through a multi‑level encoder that progressively reduces dimensionality, then decoding that representation back to the original space.",
+        "The architecture uses vector‑quantization‑style bottlenecks to enforce a low‑bit‑rate representation."
+      ],
+      "claims": [
+        {
+          "claim": "The hierarchical autoencoder compresses scientific data by encoding high‑resolution simulation fields into a compact latent representation through a multi‑level encoder that progressively reduces dimensionality, then decoding that representation back to the original space.",
+          "supported": false,
+          "citation": "hierarchical_autoencoder_scientific_data_compression.pdf, p.1",
+          "citation_correct": false
+        },
+        {
+          "claim": "The architecture incorporates masking layers and preprocessing techniques to improve compression efficiency.",
+          "supported": true,
+          "citation": "hierarchical_autoencoder_scientific_data_compression.pdf, p.1",
+          "citation_correct": false
+        },
+        {
+          "claim": "The architecture uses vector‑quantization‑style bottlenecks to enforce a low‑bit‑rate representation.",
+          "supported": false,
+          "citation": "hierarchical_autoencoder_scientific_data_compression.pdf, p.1",
+          "citation_correct": false
+        },
+        {
+          "claim": "Compression quality is evaluated by the achieved compression ratio (e.g., 140× on benchmark data, 200× on 500‑year CESM data).",
+          "supported": true,
+          "citation": "hierarchical_autoencoder_scientific_data_compression.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "The reconstruction error is reported as negligible for scientific analysis purposes.",
+          "supported": true,
+          "citation": "hierarchical_autoencoder_scientific_data_compression.pdf, p.1",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Key training details and negative sampling are correct, but the dual‑encoder architecture is omitted.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 9,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "The dense passage retriever (DPR) is trained by learning a dense encoder that maps each passage to a low‑dimensional real‑valued vector.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "For each training question a positive passage and a set of negative passages are used.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The loss is the negative log‑likelihood of the positive passage under a softmax over the positives and negatives.",
+          "supported": true,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "The similarity function between encoded question and passage vectors can be dot product.",
+          "supported": true,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "Negative passages can be chosen randomly from the corpus.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "BM25 negatives are top passages returned by BM25 that do not contain the answer but match many question tokens.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Gold negatives are passages that are positive for other questions in the training set.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The best performing model uses gold passages from the same mini‑batch as negatives, together with one BM25 negative passage.",
+          "supported": true,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "The in‑batch negative strategy re‑uses gold negatives efficiently and yields superior retrieval accuracy.",
+          "supported": true,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.3",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "The answer includes all key facts from the reference without contradiction.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 2,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "RAG‑Sequence uses a single retrieved document for the entire output, marginalizing the same latent document for every token.",
+          "supported": true,
+          "citation": "foundational_retrieval_augmented_generation.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "RAG‑Token allows a different latent document for each token, drawing a new document from the top‑K set per token and marginalizing per‑token choices, enabling mixing content from multiple passages.",
+          "supported": true,
+          "citation": "foundational_retrieval_augmented_generation.pdf, p.3",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "Key facts about DPR retriever and BART generator are present and correct.",
+      "faithfulness": 0.5,
+      "citation_accuracy": 0.5,
+      "n_claims": 2,
+      "unsupported_claims": [
+        "The original RAG paper uses a seq2seq language model (e.g., BART) as its generator."
+      ],
+      "claims": [
+        {
+          "claim": "The original RAG paper uses a DPR (Dense Passage Retrieval) model as its retriever.",
+          "supported": true,
+          "citation": "foundational_retrieval_augmented_generation.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "The original RAG paper uses a seq2seq language model (e.g., BART) as its generator.",
+          "supported": false,
+          "citation": "foundational_retrieval_augmented_generation.pdf, p.3",
+          "citation_correct": false
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "All key facts from the reference are present and accurate, with no contradictions.",
+      "faithfulness": 1.0,
+      "citation_accuracy": null,
+      "n_claims": 10,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "Reflection tokens are special tokens that SELF‑RAG learns to generate as part of its normal next‑token prediction.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Reflection tokens are inserted into the training corpus by a critic model.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Reflection tokens are later produced by the generator model to indicate the model’s self‑assessment of its generation process.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "There are two main categories of reflection tokens.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Retrieval‑on‑demand (Retrieve) tokens signal whether the current continuation needs factual grounding; “Yes” means call the retriever, “No” means no retrieval is needed, and “Continue to use evidence” means the model can keep using previously retrieved passages.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Relevant (ISREL) tokens signal whether a retrieved passage is useful for the current segment; “Relevant” indicates the evidence provides useful information, “Irrelevant” indicates it does not.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Supported (ISSUP) tokens signal the degree to which the generated output is backed by the evidence; they can be “Fully supported”, “Partially supported”, or “No support / Contradictory”.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Useful (ISUSE) tokens indicate whether the generated content is overall useful (as defined in Liu et al. 2023a).",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "These tokens are generated at segment‑level for retrieval, relevance, and support, and at output‑level for usefulness.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "These tokens allow SELF‑RAG to decide when to retrieve, how to evaluate retrieved passages, and which generated segment to keep.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Missing refinement detail for the Correct action and mischaracterizes it as used as‑is.",
+      "faithfulness": 0.75,
+      "citation_accuracy": 0.75,
+      "n_claims": 4,
+      "unsupported_claims": [
+        "Correct – the retrieved documents are deemed reliable and are used as‑is."
+      ],
+      "claims": [
+        {
+          "claim": "In Corrective RAG, the retrieval evaluator’s judgment determines one of three actions.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "Correct – the retrieved documents are deemed reliable and are used as‑is.",
+          "supported": false,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.3",
+          "citation_correct": false
+        },
+        {
+          "claim": "Incorrect – the retrieved documents are discarded and the system resorts to web searches for complementary knowledge.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "Ambiguous – when the evaluator is not confident, both the retrieved documents and the web‑search results are combined in a soft, balanced manner.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.3",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "All key points from the reference are present and accurate",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 7,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "RAPTOR builds its tree by recursively clustering short, contiguous text chunks (≈100 tokens each) based on their SBERT embeddings.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "RAPTOR summarizes each cluster with a language model.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "RAPTOR re‑embeds the summaries and repeats this process until no further clustering is possible.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "The resulting hierarchy has leaf nodes that are the original chunks.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "Intermediate nodes are summaries of clustered chunks.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "The root node summarizes the entire document.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        },
+        {
+          "claim": "This bottom‑up construction yields a multi‑layered tree of document summaries.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.3",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 0,
+      "judge_reason": "The answer describes different retrieval strategies than those in the reference (tree traversal vs collapsed‑tree).",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 4,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "RAPTOR implements two retrieval strategies.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "One strategy is balanced tree‑style encoding and summarization of contiguous text chunks (a recency‑based tree).",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The other strategy is cluster‑based encoding and summarization (the standard RAPTOR approach).",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The ablation study on the QuALITY dataset shows that the cluster‑based strategy outperforms the balanced‑tree strategy, yielding higher accuracy.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.16",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Mentions PPR's multi‑hop reasoning role but omits the pattern‑completion and passage‑aggregation details from the reference answer.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 2,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "Personalized PageRank (PPR) is used to perform multi‑hop reasoning over the knowledge graph in a single retrieval step.",
+          "supported": true,
+          "citation": "hipporag_knowledge_graph_retrieval.pdf, p.2",
+          "citation_correct": true
+        },
+        {
+          "claim": "By running PPR with the query concepts as seeds, HippoRAG explores KG paths and identifies relevant subgraphs, enabling single‑step multi‑hop retrieval that improves recall and overall QA performance.",
+          "supported": true,
+          "citation": "hipporag_knowledge_graph_retrieval.pdf, p.2",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "The answer accurately captures the dual‑level retrieval concept without contradictions.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 8,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "Dual‑level retrieval in LightRAG is a two‑stage keyword‑matching strategy.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "The first stage extracts local (entity‑level) query keywords.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "The first stage extracts global (relation‑level) query keywords.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "The second stage matches the extracted keywords against a lightweight graph‑based index.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "The method retrieves both specific entities and broader topics.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "The method subsequently expands the result set by gathering one‑hop neighboring nodes.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "Gathering one‑hop neighboring nodes captures higher‑order relatedness.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        },
+        {
+          "claim": "This combines low‑level detail with high‑level context for more comprehensive answers.",
+          "supported": true,
+          "citation": "lightrag_lightweight_graph_rag.pdf, p.4",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "The answer captures the essential use of community summaries and map‑reduce answering, matching the reference.",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 4,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "GraphRAG answers global questions by first generating community-level summaries for every group of closely related entities in the knowledge-graph hierarchy.",
+          "supported": true,
+          "citation": "graphrag_knowledge_graph_rag.pdf, p.6",
+          "citation_correct": true
+        },
+        {
+          "claim": "For a given query, each community summary is fed to an LLM in parallel (the “map” step) to produce a partial answer that reflects the content of that community.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "These partial answers are then combined and fed to another LLM to produce a single, final answer that summarizes the entire corpus (the “reduce” step).",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "This map‑reduce style processing allows GraphRAG to scale to large datasets while providing comprehensive, diverse responses to global questions.",
+          "supported": true,
+          "citation": "graphrag_knowledge_graph_rag.pdf, p.6; graphrag_knowledge_graph_rag.pdf, p.10",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "numeric",
+      "refused": false,
+      "correctness": 0,
+      "judge_reason": "Key figures are incorrect and contradict the reference.",
+      "faithfulness": 0.333,
+      "citation_accuracy": 0.0,
+      "n_claims": 3,
+      "unsupported_claims": [
+        "DPR achieves a top‑20 retrieval accuracy of 66.8 % on the Natural Questions development set.",
+        "DPR outperforms BM25 by about 7.7 percentage points."
+      ],
+      "claims": [
+        {
+          "claim": "DPR achieves a top‑20 retrieval accuracy of 66.8 % on the Natural Questions development set.",
+          "supported": false,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.12",
+          "citation_correct": false
+        },
+        {
+          "claim": "BM25 attains 59.1 % top‑20 retrieval accuracy on the Natural Questions development set.",
+          "supported": true,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.12",
+          "citation_correct": false
+        },
+        {
+          "claim": "DPR outperforms BM25 by about 7.7 percentage points.",
+          "supported": false,
+          "citation": "dense_passage_semantic_retrieval.pdf, p.12",
+          "citation_correct": false
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "numeric",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "Matches reference answer exactly",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 3,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "HippoRAG is evaluated on MuSiQue",
+          "supported": true,
+          "citation": "hipporag_knowledge_graph_retrieval.pdf, p.8",
+          "citation_correct": true
+        },
+        {
+          "claim": "HippoRAG is evaluated on 2WikiMultiHopQA",
+          "supported": true,
+          "citation": "hipporag_knowledge_graph_retrieval.pdf, p.8",
+          "citation_correct": true
+        },
+        {
+          "claim": "HippoRAG is evaluated on HotpotQA",
+          "supported": true,
+          "citation": "hipporag_knowledge_graph_retrieval.pdf, p.8",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "numeric",
+      "refused": true,
+      "correctness": 0,
+      "judge_reason": "false refusal",
+      "faithfulness": null,
+      "citation_accuracy": null,
+      "n_claims": 0,
+      "unsupported_claims": [],
+      "claims": []
+    },
+    {
+      "id": "q20",
+      "type": "multi_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Captures main differences but omits key details such as HippoRAG's synonymy links and Personalized PageRank, and GraphRAG's explicit extraction of entities/relationships/claims.",
+      "faithfulness": 0.9,
+      "citation_accuracy": null,
+      "n_claims": 10,
+      "unsupported_claims": [
+        "The graph is built by extracting triples directly from retrieved documents."
+      ],
+      "claims": [
+        {
+          "claim": "GraphRAG builds a graph index from the source data and then applies graph‑based community detection to create a thematic partitioning of the data.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The graph is used to generate hierarchical summaries that act as “self‑memory” for the LLM.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Retrieval is performed by traversing the graph communities; the graph is used to aggregate and rank relevant sections, but the process is computationally heavy because of the community detection step.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "HippoRAG constructs a knowledge graph from scratch using LLMs, without any supervision.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The graph is built by extracting triples directly from retrieved documents.",
+          "supported": false,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Retrieval is multi‑hop and graph‑augmented: the LLM traverses the graph to find relevant documents, improving reasoning without a separate re‑ranking module.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "LightRAG uses a lightweight, keyword‑based approach to generate a graph that captures entities and relationships but avoids heavy community detection.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The graph is built quickly and updated dynamically.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "Retrieval is dual‑level: low‑level entity retrieval and high‑level topic retrieval.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        },
+        {
+          "claim": "The graph is traversed only for keyword‑guided hops, leading to faster query times and lower storage overhead.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "multi_paper",
+      "refused": false,
+      "correctness": 2,
+      "judge_reason": "All key facts from the reference are present and accurate",
+      "faithfulness": 1.0,
+      "citation_accuracy": 1.0,
+      "n_claims": 8,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "Self‑RAG decides usefulness by letting the model itself generate a retrieval token when it predicts that augmenting the current generation with external passages would help.",
+          "supported": true,
+          "citation": "self_rag_self_reflective_retrieval.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "After the token is produced, the model evaluates the retrieved passages.",
+          "supported": true,
+          "citation": "self_rag_self_reflective_retrieval.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "The model then emits critique tokens to choose the best passage based on factuality and overall quality.",
+          "supported": true,
+          "citation": "self_rag_self_reflective_retrieval.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "This process effectively decides whether the retrieved documents are useful.",
+          "supported": true,
+          "citation": "self_rag_self_reflective_retrieval.pdf, p.1",
+          "citation_correct": true
+        },
+        {
+          "claim": "Corrective RAG uses a lightweight retrieval evaluator that scores the overall quality of the retrieved documents for a query.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.2",
+          "citation_correct": true
+        },
+        {
+          "claim": "From this score a confidence degree is computed, which triggers one of three actions: Correct, Incorrect, Ambiguous.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.2",
+          "citation_correct": true
+        },
+        {
+          "claim": "For the latter two actions, the system performs large‑scale web searches to obtain better documents.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.2",
+          "citation_correct": true
+        },
+        {
+          "claim": "Thus, the evaluator determines whether the retrieved documents are useful and whether they need correction or replacement.",
+          "supported": true,
+          "citation": "corrective_rag_retrieval_correction.pdf, p.2",
+          "citation_correct": true
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "multi_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Partial match: captures RAPTOR process but omits GraphRAG's knowledge‑graph extraction and community partitioning details.",
+      "faithfulness": 0.833,
+      "citation_accuracy": 0.6,
+      "n_claims": 6,
+      "unsupported_claims": [
+        "Thus, RAPTOR emphasizes a hierarchical, clustering‑based tree of summaries, whereas GraphRAG emphasizes community‑based summaries that reduce token usage and improve efficiency."
+      ],
+      "claims": [
+        {
+          "claim": "RAPTOR builds a recursive tree by first chunking the text, embedding the chunks with SBERT, clustering the embeddings, summarizing each cluster, re‑embedding the summaries, and repeating until no further clustering is possible.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.16",
+          "citation_correct": false
+        },
+        {
+          "claim": "The resulting tree contains multiple layers of summaries that capture both broad themes (upper nodes) and fine details (lower nodes) and is used for retrieval via a collapsed‑tree approach.",
+          "supported": true,
+          "citation": "raptor_hierarchical_document_retrieval.pdf, p.16",
+          "citation_correct": false
+        },
+        {
+          "claim": "GraphRAG constructs “community” summaries that group related passages into communities (e.g., low‑level, intermediate‑level, root‑level).",
+          "supported": true,
+          "citation": "graphrag_knowledge_graph_rag.pdf, p.10",
+          "citation_correct": true
+        },
+        {
+          "claim": "These community summaries are compared to the original source texts; they provide a small but consistent improvement in answer comprehensiveness and diversity while dramatically reducing the number of context tokens needed (26–33 % fewer for low‑level communities, >97 % fewer for root‑level).",
+          "supported": true,
+          "citation": "graphrag_knowledge_graph_rag.pdf, p.10",
+          "citation_correct": true
+        },
+        {
+          "claim": "GraphRAG’s focus is on token‑efficiency and scalability rather than a multi‑layer hierarchical tree.",
+          "supported": true,
+          "citation": "graphrag_knowledge_graph_rag.pdf, p.10",
+          "citation_correct": true
+        },
+        {
+          "claim": "Thus, RAPTOR emphasizes a hierarchical, clustering‑based tree of summaries, whereas GraphRAG emphasizes community‑based summaries that reduce token usage and improve efficiency.",
+          "supported": false,
+          "citation": null,
+          "citation_correct": null
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "multi_paper",
+      "refused": false,
+      "correctness": 1,
+      "judge_reason": "Includes HippoRAG but omits MuSiQue and 2WikiMultiHopQA mentioned in reference",
+      "faithfulness": 1.0,
+      "citation_accuracy": null,
+      "n_claims": 1,
+      "unsupported_claims": [],
+      "claims": [
+        {
+          "claim": "The paper hipporag_knowledge_graph_retrieval.pdf evaluates on the HotpotQA dataset.",
+          "supported": true,
+          "citation": null,
+          "citation_correct": null
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "out_of_scope",
+      "refused": true,
+      "correctness": 2,
+      "judge_reason": "correct refusal",
+      "faithfulness": null,
+      "citation_accuracy": null,
+      "n_claims": 0,
+      "unsupported_claims": [],
+      "claims": []
+    },
+    {
+      "id": "q25",
+      "type": "out_of_scope",
+      "refused": true,
+      "correctness": 2,
+      "judge_reason": "correct refusal",
+      "faithfulness": null,
+      "citation_accuracy": null,
+      "n_claims": 0,
+      "unsupported_claims": [],
+      "claims": []
+    },
+    {
+      "id": "q26",
+      "type": "out_of_scope",
+      "refused": true,
+      "correctness": 2,
+      "judge_reason": "correct refusal",
+      "faithfulness": null,
+      "citation_accuracy": null,
+      "n_claims": 0,
+      "unsupported_claims": [],
+      "claims": []
+    }
+  ]
+}

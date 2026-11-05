@@ -1,0 +1,171 @@
+{
+  "settings": {
+    "chunk_size": 250,
+    "chunk_overlap": 50,
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "ks": [
+      3,
+      5,
+      10
+    ],
+    "questions": "eval/questions.json"
+  },
+  "retrieval": [
+    {
+      "k": 3,
+      "group": "multi_paper",
+      "n": 4,
+      "paper_hit": 1.0,
+      "page_hit": 0.5,
+      "coverage": 0.833,
+      "mrr": 1.0,
+      "top_score": 0.759
+    },
+    {
+      "k": 3,
+      "group": "numeric",
+      "n": 4,
+      "paper_hit": 0.75,
+      "page_hit": 0.25,
+      "coverage": 0.75,
+      "mrr": 0.75,
+      "top_score": 0.742
+    },
+    {
+      "k": 3,
+      "group": "single_paper",
+      "n": 15,
+      "paper_hit": 1.0,
+      "page_hit": 0.8,
+      "coverage": 1.0,
+      "mrr": 1.0,
+      "top_score": 0.78
+    },
+    {
+      "k": 3,
+      "group": "ALL in-scope",
+      "n": 23,
+      "paper_hit": 0.957,
+      "page_hit": 0.652,
+      "coverage": 0.928,
+      "mrr": 0.957,
+      "top_score": 0.77
+    },
+    {
+      "k": 3,
+      "group": "out_of_scope",
+      "n": 3,
+      "paper_hit": null,
+      "page_hit": null,
+      "coverage": null,
+      "mrr": null,
+      "top_score": 0.667
+    },
+    {
+      "k": 5,
+      "group": "multi_paper",
+      "n": 4,
+      "paper_hit": 1.0,
+      "page_hit": 0.75,
+      "coverage": 1.0,
+      "mrr": 1.0,
+      "top_score": 0.759
+    },
+    {
+      "k": 5,
+      "group": "numeric",
+      "n": 4,
+      "paper_hit": 1.0,
+      "page_hit": 0.5,
+      "coverage": 1.0,
+      "mrr": 0.8,
+      "top_score": 0.742
+    },
+    {
+      "k": 5,
+      "group": "single_paper",
+      "n": 15,
+      "paper_hit": 1.0,
+      "page_hit": 0.867,
+      "coverage": 1.0,
+      "mrr": 1.0,
+      "top_score": 0.78
+    },
+    {
+      "k": 5,
+      "group": "ALL in-scope",
+      "n": 23,
+      "paper_hit": 1.0,
+      "page_hit": 0.783,
+      "coverage": 1.0,
+      "mrr": 0.965,
+      "top_score": 0.77
+    },
+    {
+      "k": 5,
+      "group": "out_of_scope",
+      "n": 3,
+      "paper_hit": null,
+      "page_hit": null,
+      "coverage": null,
+      "mrr": null,
+      "top_score": 0.667
+    },
+    {
+      "k": 10,
+      "group": "multi_paper",
+      "n": 4,
+      "paper_hit": 1.0,
+      "page_hit": 1.0,
+      "coverage": 1.0,
+      "mrr": 1.0,
+      "top_score": 0.759
+    },
+    {
+      "k": 10,
+      "group": "numeric",
+      "n": 4,
+      "paper_hit": 1.0,
+      "page_hit": 0.75,
+      "coverage": 1.0,
+      "mrr": 0.8,
+      "top_score": 0.742
+    },
+    {
+      "k": 10,
+      "group": "single_paper",
+      "n": 15,
+      "paper_hit": 1.0,
+      "page_hit": 1.0,
+      "coverage": 1.0,
+      "mrr": 1.0,
+      "top_score": 0.78
+    },
+    {
+      "k": 10,
+      "group": "ALL in-scope",
+      "n": 23,
+      "paper_hit": 1.0,
+      "page_hit": 0.957,
+      "coverage": 1.0,
+      "mrr": 0.965,
+      "top_score": 0.77
+    },
+    {
+      "k": 10,
+      "group": "out_of_scope",
+      "n": 3,
+      "paper_hit": null,
+      "page_hit": null,
+      "coverage": null,
+      "mrr": null,
+      "top_score": 0.667
+    }
+  ],
+  "generation": {
+    "llm_model": "openai/gpt-oss-20b",
+    "k": 5,
+    "correct_refusal_rate": 1.0,
+    "false_refusal_rate": 0.13
+  }
+}

@@ -1,0 +1,5 @@
+openai              # client for any OpenAI-compatible LLM API (Groq, Gemini, Ollama, OpenAI)
+sentence-transformers  # embedding models
+chromadb            # vector database
+pypdf               # PDF text extraction
+python-dotenv       # loads API keys from the .env file
